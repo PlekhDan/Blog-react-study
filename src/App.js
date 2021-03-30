@@ -12,8 +12,15 @@ function Menu() {
     );
 }
 
+function Main() {
+    return(
+        <h4>Главная страница</h4>
+    );
+}
+
 function ContactUs() {
     return(
+
         <div className = "container my-5">
             <form action="">
                 <div className="mb-3">
@@ -33,14 +40,19 @@ function ContactUs() {
     );
 }
 
+function AboutUs() {
+    return(
+        <h4>О нас</h4>
+    );
+}
+
 function App() {
   return (
     <div className="App">
         <BrowserRouter>
             <Menu />
-
-            <Route exact="/" path="/" render = {() => <h1>Главная страница</h1>} />
-            <Route path="/about" render = {() => <h1>О нас</h1>} />
+            <Route exact="/" path="/" render = {() => <Main/>} />
+            <Route path="/about" render = {() => <AboutUs/>} />
             <Route path="/contact-us" render = {() => <ContactUs/>} />
         </BrowserRouter>
     </div>
