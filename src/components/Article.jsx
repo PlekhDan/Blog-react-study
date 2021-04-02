@@ -24,19 +24,25 @@ export class Article extends React.Component {
                 <div className="d-flex justify-content-end">
                     <div>{this.state.date}</div>
                 </div>
+                <div>
+                    <p>ID: {this.state.id}</p>
+                </div>
             </div>
         );
     }
     componentDidMount() {
         console.log("Компонент Article отрисован");
-         const body = `{"id": "id"}`;
+        const formData = new FormData();
+        formData.append("id", "id");
+         // const body = `{"id": "id"}`;
         fetch("http://p9152834.beget.tech/php/getIdArticle.php", {
             method: "POST",
-             body: body
+             body: formData
         })  .then(response => response.json())
             .then(result => {
                 console.log(result);
                 this.setState({
+                    id: result.id,
                     title: result.title,
                     author: result.author,
                     text: result.text,
