@@ -67,7 +67,7 @@ export class AddArticle extends React.Component {
                 <h4 className="mb-5">Новая статья</h4>
                 <form onSubmit={this.handleSubmit}>
                     <div className="mb-3">
-                        <input name="title" value={this.state.value} onChange={this.handleInputChange} type="text"
+                        <input name="title" value={this.state.title} onChange={this.handleInputChange} type="text"
                                className="form-control"
                                placeholder="Заголовок статьи"/>
                         <p style={{color: "red"}}>{this.state.info}</p>
