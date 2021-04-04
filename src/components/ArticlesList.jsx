@@ -45,19 +45,22 @@ export class ArticlesList extends React.Component {
     render() {
         console.log("Компонент ArticlesList рисуется");
         return (
-            <table className="table container">
-                <thead>
-                <tr>
-                    <th scope="col">№</th>
-                    <th scope="col">Заголовок</th>
-                    <th scope="col">Автор</th>
-                    <th scope="col">Дата публикации</th>
-                </tr>
-                </thead>
-                <tbody>
-                {this.state.articles}
-                </tbody>
-            </table>
+            <div className="col-md-8 my-5 mx-auto">
+                <h4 className="mb-5">Список статей</h4>
+                <table className="table text-start">
+                    <thead>
+                    <tr>
+                        <th scope="col">№</th>
+                        <th scope="col">Заголовок</th>
+                        <th scope="col">Автор</th>
+                        <th scope="col">Дата публикации</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {this.state.articles}
+                    </tbody>
+                </table>
+            </div>
         );
     }
 }

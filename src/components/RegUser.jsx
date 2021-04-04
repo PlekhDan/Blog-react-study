@@ -61,7 +61,7 @@ export class RegUser extends React.Component {
 
     render() {
         return (
-            <div className="col-md-6 my-5 mx-auto">
+            <div className="col-md-5 my-5 mx-auto">
                 <h4 className="mb-5">Регистрация на сайте</h4>
                 <form onSubmit={this.handleSubmit}>
                     <div className="mb-3">
