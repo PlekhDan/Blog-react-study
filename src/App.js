@@ -17,7 +17,7 @@ function App() {
                 {/*<Route exact path="/" render = {() => <Main/>} />*/}
                 <Route exact path="/addArticle" render={() => <AddArticle/>}/>
                 <Route exact path="/" render={() => <ArticlesList/>}/>
-                <Route path="/article" render={() => <Article/>}/>
+                <Route path="/article/:id" render={(props) => <Article {...props} />}/>
                 <Route path="/reg" render={() => <RegUser/>}/>
             </BrowserRouter>
         </div>
