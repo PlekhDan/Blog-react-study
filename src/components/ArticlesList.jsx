@@ -4,10 +4,29 @@ import {Link} from "react-router-dom";
 function Tr(props) {
     return (
         <tr>
-            <th scope="row">{props.index}</th>
+            <th scope="row">{props.index} [{props.id}]</th>
             <td><Link to={"/article/" + props.id}>{props.title}</Link></td>
             <td>{props.author}</td>
             <td>{props.date_added}</td>
+            <td>
+                <span className="delete-post-btn" onClick={() => {
+                    const formData = new FormData();
+                    formData.append("id", props.id);
+                    fetch("http://p9152834.beget.tech/php/removeArticle.php", {
+                        method: "POST",
+                        body: formData
+                    }).then(response => response.json())
+                        .then(result => {
+                            let articles = props.parent.state.articles; // скопировали сюда весь массив статей из класса.
+                            articles.splice(props.index - 1, 1); // Удаление записи из массива.
+                            props.parent.setState({
+                                articles: articles
+                            })
+                        })
+                }}>
+                    [Удалить]
+                </span>
+            </td>
         </tr>
     );
 }
@@ -35,6 +54,7 @@ export class ArticlesList extends React.Component {
                         title={result[i].title}
                         author={result[i].author}
                         date_added={result[i].date_added}
+                        parent={this}
                     />)
                 }
                 this.setState({
@@ -55,6 +75,7 @@ export class ArticlesList extends React.Component {
                         <th scope="col">Заголовок</th>
                         <th scope="col">Автор</th>
                         <th scope="col">Дата публикации</th>
+                        <th scope="col">Управление</th>
                     </tr>
                     </thead>
                     <tbody>
