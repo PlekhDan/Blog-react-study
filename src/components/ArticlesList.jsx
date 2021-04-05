@@ -5,7 +5,7 @@ function Tr(props) {
     return (
         <tr>
             <th scope="row">{props.index}</th>
-            <td><Link to="/article">{props.title}</Link></td>
+            <td><Link to={"/article/" + props.id}>{props.title}</Link></td>
             <td>{props.author}</td>
             <td>{props.date_added}</td>
         </tr>
@@ -31,6 +31,7 @@ export class ArticlesList extends React.Component {
                     rows.push(<Tr
                         key={i}
                         index={i + 1}
+                        id={result[i].id}
                         title={result[i].title}
                         author={result[i].author}
                         date_added={result[i].date_added}

@@ -4,7 +4,11 @@ export class Article extends React.Component {
     constructor() {
         super();
         this.state = {
-            post: ""
+            title: "",
+            author: "",
+            text: "",
+            date: "",
+            id: ""
         };
     }
 
@@ -34,8 +38,7 @@ export class Article extends React.Component {
     componentDidMount() {
         console.log("Компонент Article отрисован");
         const formData = new FormData();
-        formData.append("id", "id");
-        // const body = `{"id": "id"}`;
+        formData.append("id", window.location.pathname.split("/")[2]);
         fetch("http://p9152834.beget.tech/php/getIdArticle.php", {
             method: "POST",
             body: formData
