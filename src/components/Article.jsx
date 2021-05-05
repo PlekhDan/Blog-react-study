@@ -21,13 +21,13 @@ export class Article extends React.Component {
                     <h4>{this.state.title}</h4>
                 </div>
                 <div className="d-flex justify-content-end">
-                    <div>{this.state.author}</div>
+                    <div>Автор: {this.state.author}</div>
                 </div>
                 <div className="my-4 text-start">
                     <div>{this.state.text}</div>
                 </div>
                 <div className="d-flex justify-content-end">
-                    <div>{this.state.date}</div>
+                    <div>Дата добавления: {this.state.date}</div>
                 </div>
                 {/*<div>*/}
                 {/*    <p>ID: {this.state.id}</p>*/}
@@ -40,7 +40,7 @@ export class Article extends React.Component {
         console.log("Компонент Article отрисован");
         const formData = new FormData();
         formData.append("id", this.props.match.params.id);
-        fetch("http://p9152834.beget.tech/php/getIdArticle.php", {
+        fetch("http://p9152834.beget.tech/studies/php/getIdArticle.php", {
             method: "POST",
             body: formData
         }).then(response => response.json())

@@ -38,7 +38,7 @@ export class RegUser extends React.Component {
             console.log("Отправляю запрос ...");
             const formData = new FormData();
             formData.append("email", value);
-            fetch("http://p9152834.beget.tech/php/checkEmail.php", {
+            fetch("http://p9152834.beget.tech/studies/php/checkEmail.php", {
                 method: "POST",
                 body: formData
             }).then(response => response.json())

@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 function Tr(props) {
     return (
         <tr>
-            <th scope="row">{props.index} [{props.id}]</th>
+            <th scope="row">{props.index}</th>
             <td><Link to={"/article/" + props.id}>{props.title}</Link></td>
             <td>{props.author}</td>
             <td>{props.date_added}</td>
@@ -12,7 +12,7 @@ function Tr(props) {
                 <span className="delete-post-btn" onClick={() => {
                     const formData = new FormData();
                     formData.append("id", props.id);
-                    fetch("http://p9152834.beget.tech/php/removeArticle.php", {
+                    fetch("http://p9152834.beget.tech/studies/php/removeArticle.php", {
                         method: "POST",
                         body: formData
                     }).then(response => response.json())
@@ -41,7 +41,7 @@ export class ArticlesList extends React.Component {
 
     componentDidMount() {
         console.log("Компонент ArticlesList отрисован");
-        fetch("http://p9152834.beget.tech/php/getArticles.php")
+        fetch("http://p9152834.beget.tech/studies/php/getArticles.php")
             .then(response => response.json())
             .then(result => {
                 console.log(result);
