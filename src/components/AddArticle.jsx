@@ -24,7 +24,7 @@ export class AddArticle extends React.Component {
             formData.append("title", this.state.title);
             formData.append("text", this.state.text);
             formData.append("author", this.state.author);
-            fetch("http://p9152834.beget.tech/studies/php/addArticle.php", {
+            fetch("http://p9152834.beget.tech/Blog/php/addArticle.php", {
                 method: "POST",
                 body: formData
             }).then(response => response.json())
@@ -50,7 +50,7 @@ export class AddArticle extends React.Component {
             }
             const formData = new FormData();
             formData.append("title", value);
-            fetch("http://p9152834.beget.tech/studies/php/checkTitle.php", {
+            fetch("http://p9152834.beget.tech/Blog/php/checkTitle.php", {
                 method: "POST",
                 body: formData
             }).then(response => response.json())

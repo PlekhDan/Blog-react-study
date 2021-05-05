@@ -12,7 +12,7 @@ function Tr(props) {
                 <span className="delete-post-btn" onClick={() => {
                     const formData = new FormData();
                     formData.append("id", props.id);
-                    fetch("http://p9152834.beget.tech/studies/php/removeArticle.php", {
+                    fetch("http://p9152834.beget.tech/Blog/php/removeArticle.php", {
                         method: "POST",
                         body: formData
                     }).then(response => response.json())
@@ -41,7 +41,7 @@ export class ArticlesList extends React.Component {
 
     componentDidMount() {
         console.log("Компонент ArticlesList отрисован");
-        fetch("http://p9152834.beget.tech/studies/php/getArticles.php")
+        fetch("http://p9152834.beget.tech/Blog/php/getArticles.php")
             .then(response => response.json())
             .then(result => {
                 console.log(result);

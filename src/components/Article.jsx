@@ -40,7 +40,7 @@ export class Article extends React.Component {
         console.log("Компонент Article отрисован");
         const formData = new FormData();
         formData.append("id", this.props.match.params.id);
-        fetch("http://p9152834.beget.tech/studies/php/getIdArticle.php", {
+        fetch("http://p9152834.beget.tech/Blog/php/getIdArticle.php", {
             method: "POST",
             body: formData
         }).then(response => response.json())
